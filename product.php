@@ -178,7 +178,7 @@ class Product
         if ($this->image) {
 
             // sha1_file() function is used to make a unique file name
-            $target_directory = "C:/xampp/htdocs/Assignment4_prod/MyImages/";
+            $target_directory = "C:/xampp/htdocs/Assignment4_prod";
             $target_file = $target_directory . $this->image;
             $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
             // error message is empty
