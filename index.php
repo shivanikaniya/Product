@@ -19,7 +19,6 @@ include_once "layout_header.php";
 echo "<div class='right-button-margin'>
     <a href='create.php' class='btn btn-default pull-right'>Create Product</a>
 </div>";
-// display the products if there are any
 if ($num > 0) {
     echo "<table class='table table-hover table-responsive table-bordered'>";
     echo "<tr>";
@@ -38,7 +37,8 @@ if ($num > 0) {
         echo "<td>{$name}</td>"; 
         echo "<td>{$price}</td>";
         echo "<td>";
-        echo  "<img src='{$product->$image}' style='width:200px;' />" ;
+        echo "<img src='http://localhost/MyImages/$image.' style='width:100px;height:100px' />";
+
     echo "</td>";
         echo "<td>";
         $category->id = $category_id;
