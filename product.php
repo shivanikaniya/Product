@@ -20,30 +20,7 @@ class Product
     function create()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Validate name
-            $input_name = trim($_POST["name"]);
-            if (empty($input_name)) {
-                $name_err = "Please enter a name.";
-            } elseif (!filter_var($input_name, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[a-zA-Z\s]+$/")))) {
-                $name_err = "Please enter a valid name.";
-            } else {
-                $name = $input_name;
-            }
-            // Validate price
-            $input_price = trim($_POST["price"]);
-            if (empty($input_price)) {
-                $price_err = "Please enter the price amount.";
-            } elseif (!ctype_digit($input_price)) {
-                $price_err = "Please enter a positive integer value.";
-            } else {
-                $price = $input_price;
-            }
-            $input_category = trim($_POST['category_id']);
-            if ($input_category == -1) {
-                $category_err = "please choose any one";
-            } else {
-                $category_id = $input_category;
-            }
+           
             if (empty($name_err) && empty($price_err) && empty($category_err)) {
                 $query = "INSERT INTO
                     " . $this->table_name . "
@@ -74,7 +51,7 @@ class Product
     {
          $image="";
         $query = "SELECT
-                    id, name, price, category_id,`image`
+                    id, name, price, category_id,image
                 FROM
                     " . $this->table_name . "
                 ORDER BY
@@ -90,7 +67,10 @@ class Product
 
     public function countAll()
     {
-        $query = "SELECT id FROM " . $this->table_name . "";
+        $query = "SELECT
+        name, price, category_id,image
+    FROM
+        " . $this->table_name . " ";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         $num = $stmt->rowCount();
@@ -178,11 +158,11 @@ class Product
         if ($this->image) {
 
             // sha1_file() function is used to make a unique file name
-            $target_directory = "C:/xampp/htdocs/Assignment4_prod";
+            $target_directory = "";
             $target_file = $target_directory . $this->image;
             $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
             // error message is empty
-            $file_upload_error_messages = "";
+            $file_upload_error_messages = "MyImages/";
             $check = getimagesize($_FILES["image"]["tmp_name"]);
             if ($check !== false) {
                 // submitted file is an image
@@ -236,4 +216,5 @@ class Product
 
         return $result_message;
     }
+    
 }

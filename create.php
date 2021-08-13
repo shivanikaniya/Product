@@ -29,7 +29,7 @@ if ($_POST) {
     }
 }
 ?>
-<form onsubmit = "return(validate())";action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data"name="myForm">
+<form onsubmit = "return validate1()";action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data"name="myForm">
     <table class='table table-hover table-responsive table-bordered'>
 
         <tr>
