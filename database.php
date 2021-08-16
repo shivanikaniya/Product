@@ -5,7 +5,6 @@ private $username = "root";
 private $password = "Yes";
 private $db_name = "shop";
 public $conn;
-//$conn = mysqli_connect($host, $username, $password, $db_name);
 public function getConnection(){
    
     $this->conn = null;
