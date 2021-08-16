@@ -1,8 +1,6 @@
 <?php
 
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
-  
-// include database and object files
 include_once 'database.php';
 include_once 'product.php';
 include_once 'category.php';
@@ -15,13 +13,13 @@ $product->readOne();
 $page_title = "Read One Product";
 include_once "layout_header.php";
   
-// read products button
+
 echo "<div class='right-button-margin'>";
     echo "<a href='index.php' class='btn btn-primary pull-right'>";
         echo "<span class='glyphicon glyphicon-list'></span> Read Products";
     echo "</a>";
 echo "</div>";
-// HTML table for displaying a product details
+
 echo "<table class='table table-hover table-responsive table-bordered'>";
   
     echo "<tr>";
