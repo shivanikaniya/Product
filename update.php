@@ -9,11 +9,8 @@ $product = new Product($db);
 $category = new Category($db);
 
 $product->id = $id;
-
-// read the details of product to be edited
 $product->readOne();
 
-// set page header
 $page_title = "Update Product";
 include_once "layout_header.php";
 
@@ -23,7 +20,6 @@ echo "<div class='right-button-margin'>
 
 ?>
 <?php 
-// if the form was submitted
 if($_POST){
   
     // set product property values
@@ -40,8 +36,6 @@ if($_POST){
             echo $product->uploadPhoto();
         echo "</div>";
     }
-  
-    // if unable to update the product, tell the user
     else{
         echo "<div class='alert alert-danger alert-dismissable'>";
             echo "Unable to update product.";
@@ -103,6 +97,5 @@ if($_POST){
     </table>
 </form>
 <?php
-// set page footer
 include_once "layout_footer.php";
 ?>
