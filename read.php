@@ -1,8 +1,6 @@
 <?php
 
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
-  
-// include database and object files
 include_once 'database.php';
 include_once 'product.php';
 include_once 'category.php';
